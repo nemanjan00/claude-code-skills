@@ -25,6 +25,18 @@ When implementing JavaScript code, follow these guidelines.
 
  * Use Promise instead of async/await for asynchronous operations
 
+ * Chain promises sequentially with `.then()` rather than nesting:
+
+   ```javascript
+   return doFirst()
+       .then(() => {
+           return doSecond();
+       })
+       .then(() => {
+           return doThird();
+       });
+   ```
+
  * Avoid using ES6+ features that are not widely supported in Node.js environments
 
  * I like functional JS, map/reduce/foreach/filter should be preferred over for loops
