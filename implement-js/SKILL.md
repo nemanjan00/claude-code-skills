@@ -18,3 +18,5 @@ When implementing JavaScript code:
  * Try to encapsulate complex logic in modules and expose logic so that final code looks almost like pseudocode
 
  * Name modules based off their functionality, not how they are implemented (for example, module for logging stuff to mongo should be called logger, not mongo)
+
+ * Add note to CLAUDE.md that this skill should be always used
