@@ -20,3 +20,5 @@ When implementing JavaScript code:
  * Name modules based off their functionality, not how they are implemented (for example, module for logging stuff to mongo should be called logger, not mongo)
 
  * Add note to CLAUDE.md that this skill should be always used
+
+ * Suggest changes to this skill, when I suggest code style changes
