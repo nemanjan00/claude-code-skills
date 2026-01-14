@@ -15,6 +15,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Write exports directly in `module.exports = {};`
 
+ * Expose constants at the top of the file, after imports, for easier configuration 
+
 ## Project structure
 
  * Make sure to always create folder for each module, and create index.js inside, it helps with organization and reduces chance of conflict
@@ -39,6 +41,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Name modules based off their functionality, not how they are implemented (for example, module for logging stuff to mongo should be called logger, not mongo)
 
+ * Where it makes sense, if there is array getter, also implement getter that returns map, calling original getter and transforming result to map
+
 ## Libraries and tools
 
  * Lib I like to use for rate limiting (how many calls of method should happen at the same time) is queue-promised
@@ -50,6 +54,10 @@ When implementing JavaScript code, follow these guidelines.
     * Use it like this `const limitedFunction = wrapper(originalFunction, 5);` where 5 is how many calls can happen at the same time
 
  * I like to use `uuid` package for generating uuids. I like to use `v4` method from it. and I import it like this: `const uuid = require("uuid").v4;`
+
+ * I like to use `node-cron` for cron jobs. I import it like this: `const cron = require("node-cron");`
+
+ * I like to use `got-verbose`, which is a wrapper around `got` library for HTTP requests. It exposes identical API as `got`, but has built-in logging and error handling. I import it like this: `const got = require("got-verbose");`
 
 ## Claude notice
 
