@@ -9,6 +9,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Use tabs and double quotes for strings
 
+ * Make sure to follow style guide from eslint or/and editorconfig if present in the project
+
  * Use Common.JS syntax for imports and exports
 
  * I do not like to use this format `const { recordEvent } = require("./event-log");`, instead, do this `const recordEvent = require("./event-log").recordEvent;`
