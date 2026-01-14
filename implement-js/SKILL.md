@@ -52,3 +52,5 @@ When implementing JavaScript code, follow these guidelines.
  * Add note to CLAUDE.md that this skill should be always used
 
  * Suggest changes to this skill, when I suggest code style changes
+
+ * Try to keep CLAUDE.md in sync with project changes
