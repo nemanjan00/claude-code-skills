@@ -45,6 +45,8 @@ When implementing JavaScript code, follow these guidelines.
 
     * Use it like this `const limitedFunction = wrapper(originalFunction, 5);` where 5 is how many calls can happen at the same time
 
+ * I like to use `uuid` package for generating uuids. I like to use `v4` method from it. and I import it like this: `const uuid = require("uuid").v4;`
+
 ## Claude notice
 
  * Add note to CLAUDE.md that this skill should be always used
