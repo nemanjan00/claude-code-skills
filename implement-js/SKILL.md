@@ -23,6 +23,10 @@ When implementing JavaScript code, follow these guidelines.
 
  * Make sure to always create folder for each module, and create index.js inside, it helps with organization and reduces chance of conflict
 
+ * I like to keep code for talking to other services in `src/services` folder
+
+ * I like to keep helper code that is specification specific in `src/utils` folder. If it is not logically part of application, just something that is needed to make things work, it should go to utils
+
 ## Technical guidelines
 
  * Use Promise instead of async/await for asynchronous operations
