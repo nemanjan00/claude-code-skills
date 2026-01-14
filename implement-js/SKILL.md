@@ -29,6 +29,10 @@ When implementing JavaScript code, follow these guidelines.
 
  * I like to use wrappers for repeating code, like rate limiting, cachine, etc.
 
+ * Never use `var`, always `const`/`let`. Unless you really need to change value, use `const`
+
+ * Never change parameters of functions, always create new variables if you need to change something
+
 ## Architectural guidelines
 
  * Try to encapsulate complex logic in modules and expose logic so that final code looks almost like pseudocode
