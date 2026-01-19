@@ -84,3 +84,21 @@ When implementing JavaScript code, follow these guidelines.
  * Suggest changes to this skill, when I suggest code style changes
 
  * Try to keep CLAUDE.md in sync with project changes
+
+## Building container
+
+It is usual for me to use herokuish build like this
+
+```
+FROM gliderlabs/herokuish:latest
+
+COPY . /app
+
+WORKDIR /app
+
+RUN /bin/herokuish buildpack build
+
+ENV PORT 3000
+
+EXPOSE 3000
+```
