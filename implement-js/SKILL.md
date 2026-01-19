@@ -61,6 +61,10 @@ When implementing JavaScript code, follow these guidelines.
 
  * Where it makes sense, if there is array getter, also implement getter that returns map, calling original getter and transforming result to map
 
+## Package manager
+
+ * Always use `yarn` instead of `npm`, unless there is a `package-lock.json` present (then use `npm`)
+
 ## Libraries and tools
 
  * Lib I like to use for rate limiting (how many calls of method should happen at the same time) is queue-promised
