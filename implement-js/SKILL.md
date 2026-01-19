@@ -61,6 +61,48 @@ When implementing JavaScript code, follow these guidelines.
 
  * Where it makes sense, if there is array getter, also implement getter that returns map, calling original getter and transforming result to map
 
+## Service pattern
+
+ * Services should be defined as objects with methods, not separate functions
+
+ * Use `_client` for the HTTP client (private by convention), do not export it
+
+ * Reference the service object by name inside methods
+
+ * Example:
+
+   ```javascript
+   const got = require("got-verbose");
+   const config = require("../../config");
+
+   const myService = {
+       _client: got.extend({
+           prefixUrl: "https://api.example.com",
+           headers: {
+               authorization: "Bearer " + config.get("MY_API_KEY")
+           }
+       }),
+
+       getItems: () => {
+           return myService._client.get("items").then((response) => {
+               return JSON.parse(response.body).items;
+           });
+       },
+
+       getItemsMap: () => {
+           return myService.getItems().then((items) => {
+               const map = {};
+               items.forEach((item) => {
+                   map[item.id] = item;
+               });
+               return map;
+           });
+       }
+   };
+
+   module.exports = myService;
+   ```
+
 ## Package manager
 
  * Always use `yarn` instead of `npm`, unless there is a `package-lock.json` present (then use `npm`)
@@ -86,6 +128,8 @@ When implementing JavaScript code, follow these guidelines.
  * I like to use `node-cron` for cron jobs. I import it like this: `const cron = require("node-cron");`
 
  * I like to use `got-verbose`, which is a wrapper around `got` library for HTTP requests. It exposes identical API as `got`, but has built-in logging and error handling. I import it like this: `const got = require("got-verbose");`
+
+ * I like to use `forever` for running Node.js applications. Use it in the start script: `"start": "forever src/index.js"`
 
 ## Claude notice
 
