@@ -65,6 +65,12 @@ When implementing JavaScript code, follow these guidelines.
 
  * Always use `yarn` instead of `npm`, unless there is a `package-lock.json` present (then use `npm`)
 
+## Version control
+
+ * Make sure there is `.gitignore` file present
+
+   * Make sure to ignore `node_modules`
+
 ## Libraries and tools
 
  * Lib I like to use for rate limiting (how many calls of method should happen at the same time) is queue-promised
