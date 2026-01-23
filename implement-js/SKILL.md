@@ -34,6 +34,8 @@ When implementing JavaScript code, follow these guidelines.
    * Added to `package.json` scripts (e.g., `"pull": "forever bin/pull.js"`)
    * Added to `Procfile` for herokuish (e.g., `pull: yarn pull`)
 
+ * Scripts run in heroku/herokuish environment
+
 ## Technical guidelines
 
  * Use Promise instead of async/await for asynchronous operations
