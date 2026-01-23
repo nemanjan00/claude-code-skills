@@ -1,6 +1,7 @@
 ---
 name: implement-js
 description: Implement JavaScript code based on user requirements.
+globs: ["*.js", "package.json"]
 ---
 
 When implementing JavaScript code, follow these guidelines.
@@ -33,6 +34,9 @@ When implementing JavaScript code, follow these guidelines.
    * Started with `forever` (e.g., `forever bin/pull.js`)
    * Added to `package.json` scripts (e.g., `"pull": "forever bin/pull.js"`)
    * Added to `Procfile` for herokuish (e.g., `pull: yarn pull`)
+   * Have a `-watch` variant using `nodemon` for development (e.g., `"pull-watch": "nodemon bin/pull.js"`)
+
+ * If `nodemon` is not in package.json, install it as dev dependency (`yarn add -D nodemon`)
 
  * Scripts run in heroku/herokuish environment
 
