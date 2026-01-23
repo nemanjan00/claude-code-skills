@@ -68,6 +68,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Never change parameters of functions, always create new variables if you need to change something
 
+ * Handle errors at the last possible moment to avoid losing error data when rebuilding. Catch earlier only when it makes sense for the logic
+
 ## Architectural guidelines
 
  * Try to encapsulate complex logic in modules and expose logic so that final code looks almost like pseudocode
