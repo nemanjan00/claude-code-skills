@@ -150,6 +150,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Suggest changes to this skill, when I suggest code style changes
 
+ * If you notice a pattern in my instructions, suggest adding it to this skill
+
  * Try to keep CLAUDE.md in sync with project changes
 
 ## Building container
