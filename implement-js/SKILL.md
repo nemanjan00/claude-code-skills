@@ -18,7 +18,9 @@ When implementing JavaScript code, follow these guidelines.
 
  * Write exports directly in `module.exports = {};`
 
- * Expose constants at the top of the file, after imports, for easier configuration 
+ * Expose constants at the top of the file, after imports, for easier configuration
+
+ * Use JSDoc when function parameters are ambiguous (e.g., options objects with multiple properties)
 
 ## Project structure
 
