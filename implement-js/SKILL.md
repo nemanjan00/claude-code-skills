@@ -27,6 +27,13 @@ When implementing JavaScript code, follow these guidelines.
 
  * I like to keep helper code that is specification specific in `src/utils` folder. If it is not logically part of application, just something that is needed to make things work, it should go to utils
 
+ * I create entrypoints into project in `bin/` folder (e.g., `bin/pull.js`, `bin/sync.js`)
+
+ * All entrypoints must be:
+   * Started with `forever` (e.g., `forever bin/pull.js`)
+   * Added to `package.json` scripts (e.g., `"pull": "forever bin/pull.js"`)
+   * Added to `Procfile` for herokuish (e.g., `pull: yarn pull`)
+
 ## Technical guidelines
 
  * Use Promise instead of async/await for asynchronous operations
