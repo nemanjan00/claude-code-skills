@@ -146,6 +146,10 @@ When implementing JavaScript code, follow these guidelines.
 
  * I like to use `got-verbose`, which is a wrapper around `got` library for HTTP requests. It exposes identical API as `got`, but has built-in logging and error handling. I import it like this: `const got = require("got-verbose");`
 
+   * **Note:** `got-verbose` does not work with streams. For streaming, use `got` directly (`const got = require("got");`)
+
+   * Avoid using .json() method of got-verbose and json option, instead use .body and parse JSON manually, it does have some unexpected behavior
+
  * I like to use `forever` for running Node.js applications. Use it in the start script: `"start": "forever src/index.js"`
 
 ## Claude notice
