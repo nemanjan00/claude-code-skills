@@ -181,3 +181,17 @@ ENV PORT 3000
 
 EXPOSE 3000
 ```
+
+## Cleanup time
+
+ * /implement-js
+
+ * update docs (README.md)
+
+ * update your docs (CLAUDE.md)
+
+ * update missing jsdoc...
+
+ * check tests
+
+ * check linter
