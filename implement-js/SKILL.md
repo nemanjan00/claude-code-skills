@@ -22,6 +22,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Use JSDoc when function parameters are ambiguous (e.g., options objects with multiple properties)
 
+ * Prefer if/else over ternaries for non-trivial logic - readability over cleverness
+
 ## Project structure
 
  * Make sure to always create folder for each module, and create index.js inside, it helps with organization and reduces chance of conflict
