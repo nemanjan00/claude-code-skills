@@ -184,6 +184,8 @@ EXPOSE 3000
 
 ## Cleanup time
 
+When I tell you it is cleanup time, follow this checklist:
+
  * /implement-js
 
  * update docs (README.md)
