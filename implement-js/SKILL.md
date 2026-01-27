@@ -164,6 +164,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Try to keep CLAUDE.md in sync with project changes
 
+ * If you are writing a pseudocode (calling method or API endpoint you are not sure exists), add TODO comment so I know I should fix it
+
 ## Building container
 
 It is usual for me to use herokuish build like this
