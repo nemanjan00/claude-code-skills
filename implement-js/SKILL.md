@@ -126,6 +126,8 @@ When implementing JavaScript code, follow these guidelines.
 
  * Always use `yarn` instead of `npm`, unless there is a `package-lock.json` present (then use `npm`)
 
+ * Never guess npm package versions — use `yarn add <package>` (or `yarn add -D <package>` for dev dependencies) and let yarn resolve the correct version. Do not manually edit dependency versions in `package.json`.
+
 ## Version control
 
  * Make sure there is `.gitignore` file present
