@@ -38,7 +38,8 @@ When implementing JavaScript code, follow these guidelines.
    * Started with `forever` (e.g., `forever bin/pull.js`)
    * Added to `package.json` scripts (e.g., `"pull": "forever bin/pull.js"`)
    * Added to `Procfile` for herokuish (e.g., `pull: yarn pull`)
-   * Have a `-watch` variant using `nodemon` for development (e.g., `"pull-watch": "nodemon bin/pull.js"`)
+   * Have a `-watch` suffix variant using `nodemon` for development (e.g., `"pull-watch": "nodemon bin/pull.js"`)
+   * Naming convention: `<name>` for prod, `<name>-watch` for dev (suffix, not prefix)
 
  * If `nodemon` is not in package.json, install it as dev dependency (`yarn add -D nodemon`)
 
@@ -134,6 +135,49 @@ When implementing JavaScript code, follow these guidelines.
 
    * Make sure to ignore `node_modules`
 
+## Linting & Code Quality
+
+ * Use ESLint with `eslint:recommended` and `@babel/eslint-parser`
+
+ * ESLint config (`.eslintrc.json`):
+   * `indent`: tabs
+   * `quotes`: double
+   * `semi`: always
+   * `no-param-reassign`: error
+   * `no-trailing-spaces`: error
+   * `no-unused-vars`: error (with `argsIgnorePattern: "^_"`)
+   * env: `es6`, `node`, `commonjs`, plus test env (`jest` or `mocha`)
+
+ * Dev dependencies for linting: `eslint`, `@babel/core`, `@babel/eslint-parser`
+
+ * Add `"lint": "eslint src/ bin/"` script (and `tests/` if present)
+
+## Testing
+
+ * Use `jest` for testing (with `supertest` for API tests)
+
+ * Jest config in package.json: `"jest": { "testEnvironment": "node", "forceExit": true }`
+
+ * Test files go in `__tests__/` folder inside each module (e.g., `src/config/__tests__/config.test.js`)
+
+ * Add scripts: `"test": "jest"`, `"test:watch": "jest --watch"`
+
+## Pre-commit hooks
+
+ * Use `husky` (v9+) with `lint-staged` for pre-commit hooks
+
+ * Dev dependencies: `husky`, `lint-staged`
+
+ * Add `"prepare": "husky"` script to package.json
+
+ * Add `lint-staged` config to package.json: `"lint-staged": { "*.js": "eslint --fix" }`
+
+ * `.husky/pre-commit` should run:
+   ```
+   yarn lint-staged
+   yarn test
+   ```
+
 ## Libraries and tools
 
  * Lib I like to use for rate limiting (how many calls of method should happen at the same time) is queue-promised
@@ -154,7 +198,11 @@ When implementing JavaScript code, follow these guidelines.
 
    * Avoid using .json() method of got-verbose and json option, instead use .body and parse JSON manually, it does have some unexpected behavior
 
- * I like to use `forever` for running Node.js applications. Use it in the start script: `"start": "forever src/index.js"`
+ * I like to use `forever` for running Node.js applications. Use it in the start script: `"web": "forever src"`
+
+ * The web entry point is always `src/index.js` (not in `bin/`). Other processes (worker, cron, etc.) go in `bin/` with `.js` extension
+
+ * Script naming: `web`/`watch` for web server, `worker`/`watch-worker` for workers, etc. (not `start`/`dev`)
 
 ## Claude notice
 
