@@ -1,0 +1,65 @@
+# === Clean-room RE: nothing copyrighted or owner-identifying enters git ===
+
+# Vendor software working dirs (convention B: version-tracked desktop apps)
+triage/
+processed/
+
+# Local vendor reference material (convention A): manuals, datasheets, scratch.
+# NOTE: in this convention `docs/` is NOT tracked. Tracked findings live in the
+# per-target folder (e.g. gm600/). Re-fetch reference material per machine; list
+# source URLs in CLAUDE.md. Delete this line if your repo tracks docs/ instead.
+docs/
+
+# Image backups — codeplug/EEPROM/flash dumps, golden images. Still the vendor's
+# content, and may contain the owner's serial numbers / PII.
+*_backups/
+**/flash_backups/
+**/codeplug_backups/
+*.golden
+
+# Vendor binaries that might land at the repo root by accident
+*.exe
+*.dll
+*.bin
+*.cab
+*.msi
+
+# Vendor codeplug / config / firmware formats (decoded copies are still theirs)
+*.cps
+*.cpg
+*.rcdx
+*.rdb
+*.rad
+*.per
+*.net
+*.srec
+*.mot
+
+# Reverse-engineering tool databases (built from their binary)
+*.idb
+*.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+
+# Host-specific agent notes (access, lab-PC paths, keys)
+CLAUDE.local.md
+
+# Build / sim / tool run artifacts
+*.vcd
+build/
+dist/
+node_modules/
+*.egg-info/
+__pycache__/
+*.pyc
+.venv/
+/venv
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
